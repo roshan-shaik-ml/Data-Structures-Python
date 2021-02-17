@@ -62,14 +62,14 @@ def checkPrecedence(stack, operatorStack, current):
             operatorStack.append(current)
         elif precedence[current] <= precedence[operatorStack[-1]]:
         
-      '''
-         After removing the higher precedence, we check if there are
-         values that match the current precedence value.
-         if matched, we remove the rest of them.
-      '''
+            '''
+                 After removing the higher precedence, we check if there are
+                 values that match the current precedence value.
+                 if matched, we remove the rest of them.
+            '''
             while precedence[current] <= precedence[operatorStack[-1]]:
                 
-        print(operatorStack[-1], end = " ")
+                print(operatorStack[-1], end = " ")
                 operatorStack.pop()
                 ''' check if there are no elements so, we can add the current after pops'''
                 if len(operatorStack) == 0:
@@ -77,7 +77,7 @@ def checkPrecedence(stack, operatorStack, current):
                     
             operatorStack.append(current)
     
-  else:
+    else:
         operatorStack.append(current)
 
     
@@ -87,7 +87,6 @@ def doAllTheThings(equ):
     for y in equ:
         
         if y.isdigit():
-            ''' adding the operators when found '''
             print(y, end =" ")
         else:
             checkPrecedence(equ, operatorStack, y)
