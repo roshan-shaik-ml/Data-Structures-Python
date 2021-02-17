@@ -64,7 +64,7 @@ def checkPrecedence(stack, operatorStack, current):
         
             '''
                  After removing the higher precedence, we check if there are
-                 values that match the current precedence value.
+                 values that are equal to current precedence value.
                  if matched, we remove the rest of them.
             '''
             while precedence[current] <= precedence[operatorStack[-1]]:
