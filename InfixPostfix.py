@@ -23,83 +23,84 @@
 
 
 def dumpOperators(operatorStack):
-	
-	''' 
-		Dumps all the operator until the last open
-		parentheses or emptying of the list.
-	'''
-	while len(operatorStack) != 0:
-		
-		if operatorStack[-1] != '(':
-		
-			byebye = operatorStack[-1] 
-			operatorStack.pop()
-			print(byebye, end = " ")
-		else:
-			operatorStack.pop()
-			break
-		
+    
+    ''' 
+        Dumps all the operator until the last open
+        parentheses or emptying of the list.
+    '''
+    while len(operatorStack) != 0:
+        
+        if operatorStack[-1] != '(':
+        
+            byebye = operatorStack[-1] 
+            operatorStack.pop()
+            print(byebye, end = " ")
+        else:
+            operatorStack.pop()
+            break
+        
 def checkPrecedence(stack, operatorStack, current):
-	
-	precedence = {'+' : 1, '-' : 1, '*' : 2, '/' : 2, '(' : 0}
-	
-	if current.isdigit():
-		return
-	elif current == ')':
-		
-		''' 
-			When we find close parentheses we dump all the
-			operators until the last open parentheses.
-		'''
-		dumpOperators(operatorStack)
-		
-	elif current == '(':
-		operatorStack.append('(')
-		
-	elif len(operatorStack) != 0:
-		if precedence[current] > precedence[operatorStack[-1]]:
-			# push
-			operatorStack.append(current)
-		elif precedence[current] <= precedence[operatorStack[-1]]:
-		
+    
+    precedence = {'+' : 1, '-' : 1, '*' : 2, '/' : 2, '(' : 0}
+    
+    if current.isdigit():
+        return
+    elif current == ')':
+        
+        ''' 
+            When we find close parentheses we dump all the
+            operators until the last open parentheses.
+        '''
+        dumpOperators(operatorStack)
+        
+    elif current == '(':
+        operatorStack.append('(')
+        
+    elif len(operatorStack) != 0:
+        if precedence[current] > precedence[operatorStack[-1]]:
+            # push
+            operatorStack.append(current)
+        elif precedence[current] <= precedence[operatorStack[-1]]:
+        
       '''
          After removing the higher precedence, we check if there are
          values that match the current precedence value.
          if matched, we remove the rest of them.
       '''
-			while precedence[current] <= precedence[operatorStack[-1]]:
-				
+            while precedence[current] <= precedence[operatorStack[-1]]:
+                
         print(operatorStack[-1], end = " ")
-				operatorStack.pop()
-				''' check if there are no elements so, we can add the current after pops'''
-				if len(operatorStack) == 0:
-					break
-					
-			operatorStack.append(current)
-	
+                operatorStack.pop()
+                ''' check if there are no elements so, we can add the current after pops'''
+                if len(operatorStack) == 0:
+                    break
+                    
+            operatorStack.append(current)
+    
   else:
-		operatorStack.append(current)
+        operatorStack.append(current)
 
-	
+    
 def doAllTheThings(equ): 
-	
-	operatorStack = []
-	for y in equ:
-		
-		if y.isdigit():
-			print(y, end =" ")
-		else:
-			checkPrecedence(equ, operatorStack, y)
-	
-	dumpOperators(operatorStack)
-		
+    
+    operatorStack = []
+    for y in equ:
+        
+        if y.isdigit():
+            ''' adding the operators when found '''
+            print(y, end =" ")
+        else:
+            checkPrecedence(equ, operatorStack, y)
+    
+    dumpOperators(operatorStack)
+        
 if __name__ == "__main__":
 
-	tt = int(input())
-	
-	for i in range(0, tt):
-		arr = input().split()
-		size = len(arr)
-		
-		doAllTheThings(arr[:size-1])
-		print()
+    tt = int(input())
+    
+    for i in range(0, tt):
+        arr = input().split()
+        size = len(arr)
+        
+        doAllTheThings(arr[:size-1])
+        print()
