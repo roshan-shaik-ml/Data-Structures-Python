@@ -21,7 +21,6 @@
     
 '''
 
-
 def dumpOperators(operatorStack):
     
     ''' 
@@ -79,7 +78,6 @@ def checkPrecedence(stack, operatorStack, current):
     
     else:
         operatorStack.append(current)
-
     
 def doAllTheThings(equ): 
     
