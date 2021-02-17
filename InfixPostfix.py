@@ -70,7 +70,10 @@ def checkPrecedence(stack, operatorStack, current):
                 
                 print(operatorStack[-1], end = " ")
                 operatorStack.pop()
-                ''' check if there are no elements so, we can add the current after pops'''
+                ''' 
+                    check if there are no elements so, 
+                    we can add the current after pops
+                '''
                 if len(operatorStack) == 0:
                     break
                     
