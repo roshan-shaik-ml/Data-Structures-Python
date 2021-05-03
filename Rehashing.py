@@ -1,5 +1,7 @@
-# This hashmap is from the first letter of their names 
-# to their complete name with threshold of three values
+'''
+    This hashmap is from the first letter of their names 
+    to their complete name with a chaining threshold of three values
+'''
 
 if __name__ == "__main__":
 
