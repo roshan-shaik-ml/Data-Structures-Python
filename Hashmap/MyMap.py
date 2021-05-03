@@ -6,7 +6,6 @@
 
 class Hashmap:
 
-    
     def __init__(self, threshold = 10):
 
         self.mod = 26
