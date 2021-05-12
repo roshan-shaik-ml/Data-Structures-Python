@@ -9,7 +9,7 @@ from MyMap import Mymap
 
 if __name__ == "__main__":
 
-     # my map takes two argument cahce limit and threshold of chaining in case of hashcode collisions
+    # my map takes two argument cahce limit and threshold of chaining in case of hashcode collisions
     mymap = Mymap(4)
     mymap.put('roshan', 12)
     mymap.put('Jasper', 14)
