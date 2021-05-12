@@ -1,3 +1,10 @@
+'''
+    Author: Shaik Faizan Roshan Ali
+    Email: alsahercoder@gmail.com
+    Date: 12 May 2021
+    Program: Immplementation of Cache eviction policy (LRU)
+'''
+
 from MyMap import Mymap
 
 if __name__ == "__main__":
